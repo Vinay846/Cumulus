@@ -4,7 +4,7 @@ import Search from './components/Search';
 import Sort from './components/Sort';
 import data from './data.json';
 import { Switch, Route, useHistory } from 'react-router-dom';
-import './index.css'
+import './index.css';
 
 function App() {
 	const [ moviesDatas, setMoviesDatas ] = useState([]);
@@ -17,7 +17,7 @@ function App() {
 	const handleSort = () => {
 		const temp = moviesDatas.slice().sort((r1, r2) => {
 			if (fieldSort === 'Title') {
-				return r1.Title - r2.Title;
+				return r1.Title.toLowerCase().localeCompare(r2.Title.toLowerCase());
 			} else if (fieldSort === 'Year') {
 				return r1.Year - r2.Year;
 			} else if (fieldSort === 'BoxOffice') {
@@ -25,8 +25,8 @@ function App() {
 			} else if (fieldSort === 'imdbRating') {
 				return r1.imdbRating - r2.imdbRating;
 			}
+			return 0;
 		});
-    console.log("sorted "+temp);
 		setQueryDatas(temp);
 		history.push('/sort');
 	};
@@ -42,23 +42,24 @@ function App() {
 			} else if (field === 'Director') {
 				return data.Director.toString().indexOf(query) > -1;
 			}
+			return 0;
 		});
-		console.log(temp);
 		setQueryDatas(temp);
 		history.push('/search');
 	};
 
 	useEffect(() => {
 		setMoviesDatas(data);
-		console.log(data);
+		// console.log(data);
 	}, []);
 
 	return (
 		<div className="App">
-			<header>
+			<div style={{cursor: "pointer"}} onClick={() => history.push('/')} className="heading">Cumulus Test</div>
+			<header className="header">
 				<div className="search">
+					<div>Search</div>
 					<label>
-						Search 
 						<select value={field} onChange={(e) => setField(e.target.value)}>
 							<option value="Title">Title</option>
 							<option value="Actors">Actors</option>
@@ -77,7 +78,7 @@ function App() {
 					<button onClick={search}>Search</button>
 				</div>
 				<div className="search">
-					<select value={fieldSort} onChange={e => setFieldSort(e.target.value)}>
+					<select value={fieldSort} onChange={(e) => setFieldSort(e.target.value)}>
 						<option value="Sort Using">Sort Using</option>
 						<option value="Title">Title</option>
 						<option value="Year">Year</option>

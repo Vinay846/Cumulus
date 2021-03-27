@@ -1,26 +1,44 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import './index.css';
+import ListItem from './ListItem'
 
 function Search({ queryDatas }) {
+    const [showData, setShowData] = useState([]);
+    const [pageNumber, setPageNumber] = useState(1);
+
+
+    const next = () => {
+        setPageNumber(prev => prev + 1);
+    }
+
+    const prev = () => {
+        if (pageNumber >= 1) {
+            setPageNumber(prev => prev - 1);
+        }
+    }
+
+
+
+    useEffect(() => {
+        const temp = queryDatas.slice((pageNumber - 1) * 12, pageNumber * 12);
+        setShowData(temp);
+
+    }, [queryDatas, pageNumber])
 
 
     return (
         <>
-            <div className="details">
-            </div>
-            <div className="grid">
-                {queryDatas.map((data, idx) => (
-                    <div key={idx}>
-                            <div className="body">
-                                <div>
-                                    {/* <img id="img" src={data.Poster} alt="Poster" /> */}
-                                </div>
-                                <div>Title: {data.Title}</div>
-                                <div>Language: {data.Language}</div>
-                                <div>Genre: {data.Genre}</div>
-                            </div>
-                    </div>
+             <div className="grid">
+                {showData.map((data, idx) => (
+                    <ListItem
+                        key={idx}
+                        data={data}
+                    />
                 ))}
+            </div>
+            <div>
+                <button disabled={pageNumber === 1} onClick={prev}>prev</button>
+                <button onClick={next}>next</button>
             </div>
         </>
     );
