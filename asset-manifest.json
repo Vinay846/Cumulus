@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Cumulus/static/css/main.4c809ca0.chunk.css",
+    "main.js": "/Cumulus/static/js/main.1461e27a.chunk.js",
+    "main.js.map": "/Cumulus/static/js/main.1461e27a.chunk.js.map",
+    "runtime-main.js": "/Cumulus/static/js/runtime-main.63570690.js",
+    "runtime-main.js.map": "/Cumulus/static/js/runtime-main.63570690.js.map",
+    "static/js/2.c1d499f0.chunk.js": "/Cumulus/static/js/2.c1d499f0.chunk.js",
+    "static/js/2.c1d499f0.chunk.js.map": "/Cumulus/static/js/2.c1d499f0.chunk.js.map",
+    "static/js/3.5f035439.chunk.js": "/Cumulus/static/js/3.5f035439.chunk.js",
+    "static/js/3.5f035439.chunk.js.map": "/Cumulus/static/js/3.5f035439.chunk.js.map",
+    "index.html": "/Cumulus/index.html",
+    "static/css/main.4c809ca0.chunk.css.map": "/Cumulus/static/css/main.4c809ca0.chunk.css.map",
+    "static/js/2.c1d499f0.chunk.js.LICENSE.txt": "/Cumulus/static/js/2.c1d499f0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.63570690.js",
+    "static/js/2.c1d499f0.chunk.js",
+    "static/css/main.4c809ca0.chunk.css",
+    "static/js/main.1461e27a.chunk.js"
+  ]
+}
