@@ -34,13 +34,13 @@ function App() {
 	const search = () => {
 		const temp = moviesDatas.filter((data) => {
 			if (field === 'Title') {
-				return data.Title.toString().indexOf(query) > -1;
+				return data.Title.toString().toLowerCase().indexOf(query.toLowerCase()) > -1;
 			} else if (field === 'Actors') {
-				return data.Actors.toString().indexOf(query) > -1;
+				return data.Actors.toString().toLowerCase().indexOf(query.toLowerCase()) > -1;
 			} else if (field === 'Country') {
-				return data.Country.toString().indexOf(query) > -1;
+				return data.Country.toString().toLowerCase().indexOf(query.toLowerCase()) > -1;
 			} else if (field === 'Director') {
-				return data.Director.toString().indexOf(query) > -1;
+				return data.Director.toString().toLowerCase().indexOf(query.toLowerCase()) > -1;
 			}
 			return 0;
 		});
